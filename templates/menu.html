@@ -1,0 +1,37 @@
+<header>
+  <nav>
+    <ul>
+      <menu>
+        <div align="left">
+          <h1>Nutrição</h1>
+        </div>
+      </menu>
+      <menu>
+        <div align="right">
+          <button type="button" class="button " onclick=location.href='/'>
+            Home
+          </button>
+          <button type="button" class="button" onclick=location.href="{% url 'sobre' %}">
+            Sobre
+          </button>
+          <button type="button" class="button" onclick=location.href="#">
+            Serviços
+          </button>
+          <button type="button" class="button" onclick=location.href="{% url 'contato' %}">
+            Contato
+          </button>
+          <button type="button" class="button" onclick={% if user.is_authenticated %} location.href="{% url 'logout' %}"
+            {% else %} location.href="{% url 'login' %}" {% endif %}>
+            {% if user.is_authenticated %} Logout {% else %} Login {% endif %}
+          </button>
+          {% if user.is_authenticated %} 
+          <button type="button" class="button" onclick=location.href="{% url 'agendamento' %}">
+              Agendamento
+            </a>
+          </button>
+          {% endif %}
+        </div>
+      </menu>
+    </ul>
+  </nav>
+</header>
